@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafin Aku Olinnn ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff69b4;
+            animation: float 6s infinite linear;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .pulse-heart {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 0.8s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .love-button {
+            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+            transition: all 0.3s ease;
+        }
+        
+        .love-button:hover {
+            background: linear-gradient(45deg, #ff8fab, #ffadc6);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 157, 0.3);
+        }
+        
+        .message-card {
+            background: linear-gradient(135deg, #fff5f8, #ffe8f0);
+            border: 2px solid #ffb3d1;
+            transition: all 0.3s ease;
+        }
+        
+        .message-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-purple-50 to-red-100 min-h-screen">
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="heartsContainer"></div>
+    
+    <!-- Main Content -->
+    <div class="relative z-10 container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-pink-600 mb-4 bounce-in">
+                Maafin Aku Olinnn 💕
+            </h1>
+            <div class="text-6xl pulse-heart">❤️</div>
+        </div>
+        
+        <!-- Main Message -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <div class="message-card rounded-3xl p-8 md:p-12 text-center">
+                <h2 class="text-2xl md:text-3xl font-semibold text-pink-700 mb-6">
+                    Untuk Cinta Hatiku... 💖
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6" id="mainMessage">
+                    Aku tahu aku salah olinnn... Maafin aku ya? 🥺<br>
+                    Kamu adalah segalanya buat aku, tanpa kamu hidup aku hampa.<br>
+                    Aku janji akan lebih baik lagi, lebih perhatian, dan lebih sayang sama kamu. 💕
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <span class="text-3xl">🌹</span>
+                    <span class="text-3xl">💝</span>
+                    <span class="text-3xl">🌹</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interactive Buttons -->
+        <div class="text-center mb-12">
+            <h3 class="text-2xl font-semibold text-pink-600 mb-6">Pilih pesan untuk kamu olinnn:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                <button onclick="changeMessage(0)" class="love-button text-white px-6 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    💕 Kata Maaf
+                </button>
+                <button onclick="changeMessage(1)" class="love-button text-white px-6 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    🌹 Kata Romantis
+                </button>
+                <button onclick="changeMessage(2)" class="love-button text-white px-6 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    💖 Janji Manis
+                </button>
+                <button onclick="changeMessage(3)" class="love-button text-white px-6 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    🥺 Rayuan Manja
+                </button>
+                <button onclick="changeMessage(4)" class="love-button text-white px-6 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    ✨ Pujian Cantik
+                </button>
+                <button onclick="changeMessage(5)" class="love-button text-white px-6 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    💝 Ungkapan Cinta
+                </button>
+            </div>
+        </div>
+        
+        <!-- Love Counter -->
+        <div class="text-center mb-12">
+            <div class="message-card rounded-2xl p-6 max-w-md mx-auto">
+                <h4 class="text-xl font-semibold text-pink-600 mb-4">Seberapa Sayang Aku Sama Kamu?</h4>
+                <div class="text-4xl font-bold text-red-500 mb-4" id="loveCounter">0</div>
+                <button onclick="addLove()" class="love-button text-white px-8 py-3 rounded-full font-semibold shadow-lg">
+                    Tambah Cinta ❤️
+                </button>
+                <p class="text-sm text-gray-600 mt-3">Klik terus sampai infinity! 💕</p>
+            </div>
+        </div>
+        
+
+        
+        <!-- Final Message -->
+        <div class="text-center">
+            <div class="message-card rounded-3xl p-8 max-w-3xl mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold text-pink-600 mb-4">
+                    Aku Cinta Kamu Selamanya 💕
+                </h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    Jangan marah lagi ya olinnn... Aku udah buat website ini khusus buat kamu 🥺<br>
+                    Kamu adalah alasan aku tersenyum setiap hari ✨
+                </p>
+                <button onclick="sendToWhatsApp()" class="love-button text-white px-10 py-4 rounded-full font-bold text-xl shadow-lg">
+                    Klik Kalau Udah Ga Marah 💖
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Surprise Modal -->
+    <div id="surpriseModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-3xl p-8 max-w-md mx-4 text-center">
+            <div class="text-6xl mb-4">🎉</div>
+            <h3 class="text-2xl font-bold text-pink-600 mb-4">Yeay! Kamu Udah Ga Marah! 💕</h3>
+            <p class="text-gray-700 mb-6">Aku sayang banget sama kamu! Makasih udah mau maafin aku 🥰</p>
+            <button onclick="closeSurprise()" class="love-button text-white px-6 py-3 rounded-full font-semibold">
+                Aku Sayang Kamu Juga ❤️
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Messages array
+        const messages = [
+            {
+                title: "Kata Maaf Dari Hati 💕",
+                content: "Maafin aku ya olinnn... Aku tahu aku salah dan aku menyesal banget 🥺<br>Aku janji ga akan ngulangin lagi. Kamu adalah yang terpenting dalam hidup aku.<br>Please jangan marah lagi... Aku ga tahan kalau kamu marah sama aku 💔"
+            },
+            {
+                title: "Kata Romantis Buat Kamu 🌹",
+                content: "Kamu itu seperti bintang di langit malam, menerangi hari-hari kelam aku ✨<br>Setiap detik bersamamu adalah anugerah terindah dalam hidup aku.<br>Tanpa kamu, dunia aku kehilangan warna. Kamu adalah cinta sejati aku 💖"
+            },
+            {
+                title: "Janji Manis Dariku 💖",
+                content: "Aku janji akan lebih perhatian, lebih pengertian, dan lebih sayang sama kamu 💕<br>Aku akan jadi yang terbaik buat kamu, karena kamu layak dapat yang terbaik.<br>Mulai sekarang, kebahagiaan kamu adalah prioritas utama aku ✨"
+            },
+            {
+                title: "Rayuan Manja Buat Kamu 🥺",
+                content: "Olinnn... jangan marah dong... Aku kangen senyum kamu yang manis itu 🥰<br>Aku kangen pelukan hangat kamu, kangen ketawa bareng kamu...<br>Hidup aku ga lengkap kalau kamu masih marah sama aku. Please olinnn... 💕"
+            },
+            {
+                title: "Pujian Cantik Buat Kamu ✨",
+                content: "Kamu itu cantik banget, apalagi kalau lagi senyum... Hati aku langsung meleleh 😍<br>Mata kamu itu indah seperti bintang, senyum kamu manis seperti madu.<br>Aku beruntung banget punya pacar secantik dan sebaik kamu 💖"
+            },
+            {
+                title: "Ungkapan Cinta Terdalam 💝",
+                content: "I love you more than words can say... Aku cinta kamu lebih dari apapun 💕<br>Kamu adalah alasan aku bangun setiap pagi dengan semangat.<br>Selamanya dan setelahnya, hati aku hanya untuk kamu seorang ❤️"
+            }
+        ];
+        
+        let loveCount = 0;
+        
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = Math.random() > 0.5 ? '❤️' : '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            
+            document.getElementById('heartsContainer').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+        
+        // Create hearts continuously
+        setInterval(createHeart, 800);
+        
+        // Change message function
+        function changeMessage(index) {
+            const messageElement = document.getElementById('mainMessage');
+            const message = messages[index];
+            
+            messageElement.style.opacity = '0';
+            messageElement.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                messageElement.innerHTML = `<strong>${message.title}</strong><br><br>${message.content}`;
+                messageElement.style.opacity = '1';
+                messageElement.style.transform = 'translateY(0)';
+                
+                // Add shake effect to the card
+                messageElement.parentElement.classList.add('shake');
+                setTimeout(() => {
+                    messageElement.parentElement.classList.remove('shake');
+                }, 500);
+            }, 300);
+        }
+        
+        // Add love function
+        function addLove() {
+            loveCount += Math.floor(Math.random() * 100) + 1;
+            document.getElementById('loveCounter').textContent = loveCount.toLocaleString();
+            
+            // Create burst of hearts
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createHeart(), i * 100);
+            }
+        }
+        
+        // Show surprise modal
+        function showSurprise() {
+            document.getElementById('surpriseModal').classList.remove('hidden');
+            
+            // Create lots of hearts
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => createHeart(), i * 50);
+            }
+        }
+        
+        // Close surprise modal
+        function closeSurprise() {
+            document.getElementById('surpriseModal').classList.add('hidden');
+        }
+        
+        // Send to WhatsApp function
+        function sendToWhatsApp() {
+            // Show surprise first
+            showSurprise();
+            
+            // Then send to WhatsApp after a short delay
+            setTimeout(() => {
+                const message = "Hai olinnn! Aku udah buat website khusus buat kamu karena aku sayang banget sama kamu 💕 Maafin aku ya... Coba buka link ini: " + window.location.href;
+                const phoneNumber = "6285888523578"; // Indonesian format
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappURL, '_blank');
+            }, 1500);
+        }
+        
+        // Add smooth transitions
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageElement = document.getElementById('mainMessage');
+            messageElement.style.transition = 'all 0.3s ease';
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976916f661d08195',t:'MTc1NjQzOTQ4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
